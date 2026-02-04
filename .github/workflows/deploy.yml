@@ -16,13 +16,20 @@ jobs:
       - name: Deploy to EC2 using Docker
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.EC2_HOST }}         # EC2 Public IP
-          username: ${{ secrets.EC2_USER }}     # ec2-user
-          key: ${{ secrets.EC2_KEY }}           # PEM private key content
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
           script: |
             cd /home/ec2-user/happy
             git pull origin master
+
             sudo docker stop happy-container || true
             sudo docker rm happy-container || true
+
             sudo docker build -t happy-image .
-            sudo docker run -d -p 3000:3000 --name happy-container happy-image
+
+            sudo docker run -d \
+              --restart unless-stopped \
+              -p 3000:3000 \
+              --name happy-container \
+              happy-image
