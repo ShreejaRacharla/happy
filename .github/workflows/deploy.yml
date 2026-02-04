@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}     # ec2-user
           key: ${{ secrets.EC2_KEY }}           # PEM private key content
           script: |
-            cd happy            # Replace with exact folder name on EC2, e.g. 'happy'
+            cd /home/ec2-user/happy           
             git pull origin master
             sudo docker stop nextjs || true
             sudo docker rm nextjs || true
