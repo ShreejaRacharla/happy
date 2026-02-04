@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Deploy to EC2 using Docker
-        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -30,7 +25,9 @@ jobs:
 
             docker build -t happy-image .
             docker run -d \
-              --restart unless-stopped \
               -p 3000:3000 \
               --name happy-container \
               happy-image
+
+              sudo docker system prune -f
+

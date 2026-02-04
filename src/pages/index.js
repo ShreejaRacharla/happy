@@ -90,7 +90,7 @@ export default function Home() {
 
           {/* Happy Birthday Text */}
           <h1 className="text-black text-4xl md:text-5xl font-bold text-center mb-4 rainbow-text animate-pulse-slow">
-            Happy Birthday!
+            Happy Birthday Cutie!
           </h1>
 
           {/* Stars decoration */}
