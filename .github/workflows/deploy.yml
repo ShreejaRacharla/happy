@@ -25,11 +25,11 @@ jobs:
             cd /home/ec2-user/happy
             git pull origin master
 
-            sudo docker stop happy-container || true
-            sudo docker rm happy-container || true
+            docker stop happy-container || true
+            docker rm happy-container || true
 
-            sudo docker build -t happy-image .
-            sudo docker run -d \
+            docker build -t happy-image .
+            docker run -d \
               --restart unless-stopped \
               -p 3000:3000 \
               --name happy-container \
