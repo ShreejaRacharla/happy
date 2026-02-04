@@ -20,9 +20,9 @@ jobs:
           username: ${{ secrets.EC2_USER }}     # ec2-user
           key: ${{ secrets.EC2_KEY }}           # PEM private key content
           script: |
-            cd happy           
+            cd /home/ec2-user/happy
             git pull origin master
             sudo docker stop happy-container || true
             sudo docker rm happy-container || true
-            sudo docker build -t nextjs-app .
-            sudo docker run -d -p 3000:3000 --name nextjs nextjs-app
+            sudo docker build -t happy-image .
+            sudo docker run -d -p 3000:3000 --name happy-container happy-image
