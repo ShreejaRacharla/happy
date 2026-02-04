@@ -8,7 +8,8 @@ import {
   Heart,
   Sparkles as SparkleIcon,
   Music,
-  Flower2
+  Flower2,
+  HeartHandshake
 } from 'lucide-react';
 import Confetti from '../components/Confetti';
 import FloatingHearts from '../components/FloatingHearts';
@@ -90,13 +91,13 @@ export default function Home() {
 
           {/* Happy Birthday Text */}
           <h1 className="text-black text-4xl md:text-5xl font-bold text-center mb-4 rainbow-text animate-pulse-slow">
-            Happy Birthday Cutie!
+            Happy Birthday My Dear!
           </h1>
 
           {/* Stars decoration */}
           <div className="flex justify-center gap-2 mb-6">
             {[...Array(5)].map((_, i) => (
-              <Star 
+              <HeartHandshake 
                 key={i}
                 size={24} 
                 className="text-yellow-400 fill-yellow-400 animate-wiggle"
