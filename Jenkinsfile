@@ -3,28 +3,22 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
+        stage('Stop Old Container') {
             steps {
-                git 'https://github.com/ShreejaRacharla/happy.git'
+                sh 'docker stop happy-container || true'
+                sh 'docker rm happy-container || true'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t nextjs-app .'
-            }
-        }
-
-        stage('Stop Old Container') {
-            steps {
-                sh 'docker stop nextjs-container || true'
-                sh 'docker rm nextjs-container || true'
+                sh 'docker build -t happy-image .'
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 --name nextjs-container nextjs-app'
+                sh 'docker run -d -p 3000:3000 --name happy-container happy-image'
             }
         }
     }
