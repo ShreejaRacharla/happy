@@ -116,7 +116,7 @@ export default function CelebrationPage() {
               <span className="rainbow-text">Yay! 🎉</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-bold text-center text-pink-500 mb-4 animate-pulse">
-              You Love Me! 💖
+              You Love Me Baby! 💖
             </h2>
           </div>
 
