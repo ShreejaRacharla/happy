@@ -115,7 +115,7 @@ export default function LovePage() {
 
           {/* Question */}
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-2 text-glow">
-            <span className="text-black rainbow-text">Do You Love Me?</span>
+            <span className="text-black rainbow-text">Do You Love Me Baby ?</span>
           </h1>
 
           {/* Subtitle */}
